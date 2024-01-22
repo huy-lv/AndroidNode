@@ -47,13 +47,12 @@ class MainActivity : AppCompatActivity() {
         binding.saveButton.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
                 binding.webView1.reload()
-                delay(3000)
-                triggerRebirth(applicationContext)
+//                delay(3000)
+//                triggerRebirth(applicationContext)
             }
         }
         binding.webView1.settings.javaScriptEnabled = true
-        binding.webView1.settings.cacheMode = WebSettings.LOAD_NO_CACHE
-        binding.webView1.loadUrl("https://textdoc.co/GKUlZhJgesabOMyF")
+        binding.webView1.loadUrl("https://justpaste.it/edit/59378095/8gpibal7f3mln4i2")
     }
 
     fun triggerRebirth(context: Context) {
