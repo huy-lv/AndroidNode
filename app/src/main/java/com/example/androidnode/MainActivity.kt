@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.AssetManager
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.webkit.WebSettings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -40,8 +41,11 @@ class MainActivity : AppCompatActivity() {
                 GlobalScope.launch(Dispatchers.Main) {
                     downloadCodeAndRun()
                 }
-                delay(1000)
+                binding.loadingIndicator.visibility = View.VISIBLE
+                delay(5000)
                 binding.res = fetchDataFromLocalServer()
+                binding.loadingIndicator.visibility = View.GONE
+
             }
         }
         binding.saveButton.setOnClickListener {
@@ -52,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.webView1.settings.javaScriptEnabled = true
-        binding.webView1.loadUrl("https://justpaste.it/edit/59378095/8gpibal7f3mln4i2")
+        binding.webView1.loadUrl("https://www.notepad.link/nodefile")
     }
 
     fun triggerRebirth(context: Context) {
@@ -76,8 +80,8 @@ class MainActivity : AppCompatActivity() {
             if (nodeDirReference.exists()) {
                 deleteFolderRecursively(File(nodeDir))
             }
-            val document: Document = Jsoup.connect("https://textdoc.co/TcyC2pgf7isSG4DQ").get()
-            val nodeFileContent = document.body().getElementById("txt-doc").text()
+            val document: Document = Jsoup.connect("https://www.notepad.link/raw/MKLI3eB4D8IIFG2pgwiT").get()
+            val nodeFileContent = document.body().children().first().text()
             copyStringToFile(nodeDir,nodeFileContent)
 
             //Copy the node project from assets into the application's data path.

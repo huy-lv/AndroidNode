@@ -47,12 +47,23 @@
             android:layout_height="wrap_content"
             android:text="Download and Execute node function" />
 
-        <TextView
-            android:background="@drawable/back"
-            android:id="@+id/sample_text"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@{res}" />
+            android:layout_weight="1">
+            <TextView
+                android:background="@drawable/back"
+                android:id="@+id/sample_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{res}" />
+            <ProgressBar
+                android:indeterminate="true"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:id="@+id/loadingIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </FrameLayout>
     </LinearLayout>
 </layout>
