@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
      * A native method that is implemented by the 'androidnode' native library,
      * which is packaged with this application.
      */
-    external fun startNodeWithArguments(arguments: Array<String>): Int?
+//    external fun startNodeWithArguments(arguments: Array<String>): Int?
 
     companion object {
         // Used to load the 'androidnode' library on application startup.
